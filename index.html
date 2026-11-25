@@ -1,1 +1,100 @@
-<!-- index.html -->
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Jana Farid's Portfolio">
+    <title>Jana Farid's Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <header>
+      <h1>Jana Farid</h1>
+      <nav aria-label="Main navigation">
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+        <button id="theme-btn" type="button">Change theme</button>
+      </nav>
+    </header>
+    <main>
+        <section id="home">
+            <h2>Computer Science Student &amp; Aspiring Software Engineer</h2>
+            <p>I build web and software projects while studying at Cairo University. Take a look at what I have made so far.</p>
+        </section>
+        <section id="about">
+          <h2>About Me</h2>
+          <p>I am a third-year Computer Science student at the Faculty of Computers and Artificial Intelligence,
+             Cairo University. I like turning ideas into working projects, 
+             from a Django recipe app to a Sudoku game in Java.
+          </p>
+          <p>What I am working on: </p>
+          <ul>
+            <li>Writing clean, semantic HTML and responsive CSS</li>
+            <li>Building interactive pages with JavaScript</li>
+            <li>Growing my Git and GitHub workflow</li>
+            <li>Preparing for a software engineering internship</li>
+          </ul> 
+        </section>
+        <section id="projects">
+          <h2>Projects</h2>
+          <div id="filter-btns">
+              <button type="button" data-filter="all" class="active">All</button>
+              <button type="button" data-filter="java-script">JavaScript</button>
+              <button type="button" data-filter="html">HTML</button>
+              <button type="button" data-filter="java">Java</button>
+              <button type="button" data-filter="python">Python</button>
+          </div>
+          <article data-category="python">
+            <h3>Recipe Finder</h3>
+            <p>A recipe website with a Django backend, built as a team project. Users can browse and search recipes.</p>
+          </article>
+          <article data-category="java">
+            <h3>Sudoku Game</h3>
+            <p>A Java Sudoku game that generates a new board every time instead of using fixed puzzles.</p>
+          </article>
+        </section>
+        <section id="contact">
+            <h2>Contact Me</h2>
+          <p>Have a question or want to work together? Send me a message.</p>
+          <form id="contact-form">
+            <div>
+              <label for="name">Name</label>
+              <input type="text" placeholder="Enter your name" id="name" name="name">
+            </div>
+            <div>
+              <label for="email">Email</label>
+              <input type="email" placeholder="Enter your email" id="email" name="email">
+            </div>
+            <div>
+              <label for="subject">Subject</label>
+              <input type="text" placeholder="Enter subject" id="subject" name="subject">
+            </div>
+            <div>
+              <label for="message">Message</label>
+              <textarea placeholder="Enter the message" id="message" name="message"></textarea>
+            </div>
+            <div>
+              <button type="submit">Submit</button>
+            </div>
+          </form>
+          <p id="form-error"></p>
+        </section>
+    </main>
+    
+    <footer>
+      <small>
+        Copyright © 2026 Jana Farid. All rights reserved.
+      </small>
+
+      <ul>
+        <li><a href="https://www.linkedin.com/in/jana-farid">LinkedIn</a></li>
+        <li><a href="https://www.facebook.com/profile.php?id=100010324895759">Facebook</a></li>
+      </ul>
+    </footer>
+    <script src="app.js" defer></script>
+  </body>
+</html>
