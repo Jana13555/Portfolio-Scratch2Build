@@ -255,6 +255,10 @@ footer ul {
   list-style: none;
 }
 
+#form-error.success {
+  color: #1a7f37;
+}
+
 @media (max-width: 600px) {
   header {
     justify-content: center;

@@ -1,8 +1,16 @@
 const themes = ['pink', 'dark', 'calm'];
+const filters = ['all', 'python', 'java']
+
 const themeBtn = document.querySelector("#theme-btn")
 const filterBtns = document.querySelector("#filter-btns") 
 const filterBtn = document.querySelectorAll("#filter-btns button") 
 const projcetCard = document.querySelectorAll("#projects article") 
+
+const contactForm = document.querySelector('#contact-form')
+const formError = document.querySelector('#form-error')
+const nameInput = document.querySelector('#name')
+const emailInput = document.querySelector('#email')
+const messageInput = document.querySelector('#message')
 
 const defaultPrefs = {
     theme: 'pink',
@@ -15,7 +23,10 @@ try {
     prefs = {...defaultPrefs};
 }
 if (!themes.includes(prefs.theme)) {
-    prefs = {...defaultPrefs}
+    prefs.theme = defaultPrefs.theme
+}
+if (!filters.includes(prefs.filter)) {
+    prefs.filter = defaultPrefs.filter
 }
 
 function setTheme(themeName) {
@@ -49,9 +60,34 @@ filterBtns.addEventListener('click', (e) => {
     savePrefs();
 })
 
-setTheme(prefs.theme)
-
-if (prefs.filter != 'all' || prefs.filter!= 'python' || prefs.filter!='java') {
-    prefs.filter = 'all';
+function showMessage(text, isSuccess) {
+    formError.textContent = text
+    formError.classList.toggle('success', isSuccess)
 }
+
+contactForm.addEventListener('submit', (e) => {
+    e.preventDefault()
+
+    const name = nameInput.value.trim()
+    const email = emailInput.value.trim()
+    const message = messageInput.value.trim()
+
+    if (name.length < 2) {
+        showMessage('Please enter your name (at least 2 characters).', false)
+        return
+    }
+    if (!email.includes('@') || !email.includes('.')) {
+        showMessage('Please enter a valid email address.', false)
+        return
+    }
+    if (message.length < 10) {
+        showMessage('Your message must be at least 10 characters.', false)
+        return
+    }
+
+    showMessage('Thank you! Your message was sent.', true)
+    contactForm.reset()
+})
+
+setTheme(prefs.theme)
 applyFilter(prefs.filter);
